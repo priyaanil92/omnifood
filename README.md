@@ -14,3 +14,6 @@ This is a simple static website I created while learning vanilla css
 - Responsive design
 - Optimized images
 - Reusable CSS classes
+
+# Check it out here:
+https://omnifood999.netlify.app/
