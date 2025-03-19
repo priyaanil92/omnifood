@@ -1,0 +1,405 @@
+/*******************************/
+/* BELOW 1344px (Smaller desktops)*/
+/*******************************/
+
+/*
+1344 / 16 = 84rem = 84em
+*/
+
+@media (max-width: 84em) {
+  .hero {
+    max-width: 120rem;
+  }
+
+  .heading-primary {
+    font-size: 4.4rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/*******************************/
+/* BELOW 1200px (Landscape Tablets)*/
+/*******************************/
+
+/*
+1200 / 16 = 75rem = 75em
+*/
+
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+  .heading-secondary {
+    font-size: 3.6rem;
+  }
+
+  .heading-tertiary {
+    font-size: 2.4rem;
+  }
+
+  .grid {
+    column-gap: 4.8rem;
+    row-gap: 6.4rem;
+  }
+
+  .header {
+    padding: 0 3.2rem;
+  }
+
+  .hero {
+    gap: 4.8rem;
+  }
+
+  .main-nav-list {
+    gap: 3.2rem;
+  }
+
+  .testimonials-container {
+    padding: 9.6rem 3.2rem;
+  }
+}
+
+/*******************************/
+/* BELOW 944px (Tablets)*/
+/*******************************/
+
+/*
+944 / 16 = 59rem = 59em
+*/
+
+@media (max-width: 59em) {
+  html {
+    font-size: 50%;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0 8rem;
+    gap: 6.4rem;
+  }
+
+  .hero-img {
+    width: 60%;
+  }
+
+  .hero-text-box {
+    text-align: center;
+  }
+
+  .hero-img-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  .delivered-meals {
+    justify-content: center;
+    margin-top: 3.2rem;
+  }
+
+  .logos img {
+    height: 2.4rem;
+  }
+
+  .step-number {
+    font-size: 7.2rem;
+  }
+
+  .meal-content {
+    padding: 2.4rem 3.2rem 3.2rem 3.2rem;
+  }
+
+  .section-testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .cta {
+    grid-template-columns: 3fr 2fr;
+  }
+  .cta-form {
+    grid-template-columns: 1fr;
+  }
+
+  .btn--form {
+    margin-top: 1.2rem;
+  }
+
+  /*******************************/
+  /* MOBILE NAVIGATION */
+  /*******************************/
+  .btn-mobile-nav {
+    display: block;
+    z-index: 1000;
+  }
+
+  .main-nav {
+    background-color: rgba(255, 255, 255, 0.7);
+    --webkit-backdrop-filter: blur(5px); /*Suport safari*/
+    backdrop-filter: blur(10px);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+
+    /*to faciliate animation of sliding the mobile nav in from right*/
+    /*First Move the entire mobile nav to the right of the screen so it is initially not on screen*/
+    transform: translateX(100%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.5s ease-in;
+
+    /* Hide navigation (display: none does not animate, so we are using this alt method) */
+    /*1. Hide visually*/
+    opacity: 0;
+
+    /*2. Make it not accessible to mouse and keyboard*/
+    pointer-events: none;
+
+    /*3. Hide it from screen reader*/
+    visibility: hidden;
+  }
+
+  .nav-open .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+
+    /*Animation for slowing the mobile nav sliding in from right*/
+    transform: translateX(0);
+  }
+
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    display: block;
+  }
+
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+
+  .main-nav-list {
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-size: 3rem;
+  }
+}
+
+/*******************************/
+/* BELOW 704px (Smaller Tablets)*/
+/*******************************/
+
+@media (max-width: 44em) {
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /*After the meal section is converted to 2*2 grid, the diets list becomes left aligned. To make it
+  centered we first span that column to the end and then center it*/
+  .diets {
+    grid-column: 1/-1;
+    justify-self: center;
+  }
+
+  .heading-secondary {
+    margin-bottom: 4.8rem;
+  }
+
+  .section-how {
+    padding: 4.8rem 0;
+  }
+
+  .section-meals {
+    padding: 4.8rem 0;
+  }
+
+  .section-pricing {
+    padding: 4.8rem 0;
+  }
+
+  .footer {
+    padding: 4.8rem 0;
+  }
+
+  .section-cta {
+    padding: 4.8rem 0 4.8rem 0;
+  }
+
+  /*The footer is now not scrollable because we have turned off the overflow-x. But now the grid 
+  containing all the footer divs don't have enough space. So we adjust the footer to have a nice layout.
+  All the nav cols we move to the first row and each of them will span across two columns. The address and log cols
+  we will span across 3 cols.*/
+
+  .grid-footer {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .nav-col {
+    grid-row: 1;
+    grid-column: span 2;
+  }
+
+  .address-col,
+  .logo-col {
+    grid-column: span 3;
+  }
+
+  /*When screen becomes too narrow the image become too narrow, so we can make it one column*/
+
+  .cta {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-img-box {
+    height: 64rem;
+    grid-row: 1;
+  }
+}
+
+/*******************************/
+/* BELOW 544px (Phone)*/
+/*******************************/
+
+@media (max-width: 34em) {
+  .grid {
+    row-gap: 4.8rem;
+  }
+
+  /*Make all grids single column*/
+  .grid--2-cols,
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .hero {
+    padding: 0 3.2rem;
+  }
+
+  .section-hero {
+    padding: 2.4rem 0 6.4rem 0;
+  }
+
+  .btn,
+  .btn:link,
+  .btn:visited {
+    padding: 2.4rem 1.6rem;
+  }
+
+  .hero-img {
+    width: 80%;
+  }
+
+  .logos img {
+    height: 1.2rem;
+  }
+
+  /*Section steps are now not in order once we switched to single columns as the images and text were
+  in zig zag order. We need to manually select those images that appear after text and put them above so that texts always follow the images.*/
+
+  .step-img-box:nth-child(2) {
+    grid-row: 1;
+  }
+
+  .step-img-box:nth-child(6) {
+    grid-row: 5;
+  }
+
+  /*The texts and images in section how have equal spaces between them from grid gap. This gives ambiguity since
+  we can't know which text the image belongs to. We can't selectively increase the row gaps. So we are doing a trick
+  here by using translate to move the image.*/
+  .step-img-box {
+    transform: translateY(2.4rem);
+  }
+
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+
+  .pricing-plan {
+    justify-self: center;
+  }
+
+  .cta-img-box {
+    height: 48rem;
+  }
+}
+
+/*******************************/
+/* Adding flex gaps using margins for older Safari versions*/
+/*******************************/
+
+/*
+main-nav-list is a flex with gap of 4.8rem with flex direction row. 
+So we add margin-right for all flex children except the last one.
+*/
+.no-flexbox-gap .main-nav-list li:not(:last-child) {
+  margin-right: 4.8rem;
+}
+
+/*
+list-item is a flex with gap of 1.6rem with flex direction column. 
+So we add margin-bottom for all flex children except the last one.
+*/
+.no-flexbox-gap .list-item:not(:last-child) {
+  margin-bottom: 1.6rem;
+}
+
+.no-flexbox-gap .list-icon:not(:last-child) {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .delivered-faces {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .meal-attribute:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.no-flexbox-gap .meal-icon {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .footer-row div:not(:last-child) {
+  margin-right: 6.4rem;
+}
+
+.no-flexbox-gap .social-links li:not(:last-child) {
+  margin-right: 2.4rem;
+}
+
+.no-flexbox-gap .footer-nav li:not(:last-child) {
+  margin-bottom: 2.4rem;
+}
+
+@media (max-width: 75em) {
+  .no-flexbox-gap .main-nav-list li:not(:last-child) {
+    margin-right: 3.2rem;
+  }
+}
+
+@media (max-width: 59em) {
+  .no-flexbox-gap .main-nav-list li:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 4.8rem;
+  }
+}
